@@ -248,8 +248,8 @@ public class StudentGroup implements StudentArrayOperation {
 	public void bubbleSort() {
 		// Add your implementation here
                 
-                for(int i=0;i<this.students.length-1;i++) {
-                    for(int j=0;j<this.students.length;j++) {
+                for(int i=0;i<this.students.length;i++) {
+                    for(int j=0;j<this.students.length-i-1;j++) {
                         if(this.students[j].getId() > this.students[j+1].getId()) {
                             Student stu = this.students[j];
                             this.students[j] = this.students[j+1];
@@ -297,7 +297,14 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student[] getNearBirthDate(Date date, int days) {
 		// Add your implementation here
-		return null;
+                 ArrayList<Student> stud = new ArrayList<>();
+		   for(Student stu : this.students)
+		   {
+		       if(stu.getBirthDate().compareTo(date) == 0)
+				   stud.add(stu);
+		   }
+		   return  stud.toArray(new Student[stud.size()]);
+		
 	}
 
 	@Override
