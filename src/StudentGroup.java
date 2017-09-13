@@ -1,3 +1,5 @@
+
+import java.util.*;
 import java.util.Date;
 
 /**
@@ -291,7 +293,23 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student[] getStudentsWithMaxAvgMark() {
 		// Add your implementation here
-		return null;
+                double maxMark=0;
+                int i;
+                
+                for(i=0;i<students.length;i++) {
+                    if(students[i].getAvgMark() > maxMark) {
+                        maxMark = students[i].getAvgMark();
+                        //count+=1;
+                    }
+                }
+                ArrayList<Student> al = new ArrayList<Student>();
+                for(i=0;i<students.length;i++) {
+                    if(students[i].getAvgMark() == maxMark) {
+                        al.add(students[i]);
+                    } 
+                }
+                students = al.toArray(new Student[al.size()]);
+		return students;
 	}
 
 	@Override
