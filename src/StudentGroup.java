@@ -262,7 +262,19 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student[] getByBirthDate(Date date) {
 		// Add your implementation here
-		return null;
+                if(date == null) {
+                    throw new IllegalArgumentException("not valid");
+                } else {
+                     ArrayList<Student> stu = new ArrayList<Student>();
+                    for(int i=0;i<this.students.length;i++) {
+                        if(this.students[i].getBirthDate().compareTo(date) == 0) {
+                            stu.add(this.students[i]);
+                        }
+                    }
+                   this.students = stu.toArray(new Student[stu.size()]);
+                    return this.students;
+                }
+		//return null;
 	}
 
 	@Override
