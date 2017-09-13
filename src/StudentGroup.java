@@ -297,18 +297,7 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student[] getNearBirthDate(Date date, int days) {
 		// Add your implementation here
-		 ArrayList<Student> stu = new ArrayList<>();
-		   Calendar cal = getCalendar(date);
-		   cal.add(Calendar.DATE, days);
-           date = cal.getTime();
-		   for(Student s : this.students)
-		   {
-		       if(s.getBirthDate().before(date))
-				   stu.add(s);
-		   }
-		   return  stu.toArray(new Student[stu.size()]); 
-                 
-         //return null;
+		
 		
 	}
 
@@ -320,14 +309,7 @@ public class StudentGroup implements StudentArrayOperation {
 
 	@Override
 	public Student[] getStudentsByAge(int age) {
-		// Add your implementation here
-		ArrayList<Student> stu = new ArrayList<>();
-		  for(int i = 0; i < this.students.length; i++)
-		  {
-		      if(getCurrentAgeByDate(i) == age)
-				  stu.add(this.students[i]);
-		  }
-          return  stu.toArray(new Student[stu.size()]);
+		
 		
 	}
 
